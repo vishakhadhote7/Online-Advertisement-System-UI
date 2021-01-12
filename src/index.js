@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import advertiseReducer from './reducers/advertise_reducer';
+import {createStore,applyMiddleware,compose} from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
+let store = createStore(advertiseReducer, 
+  compose(applyMiddleware(ReduxThunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+
+store.subscribe(()=>console.log('Current State: ', store.getState()));
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store = {store}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
