@@ -1,7 +1,14 @@
-export const HomePageComponent = (props) => {
+import React from 'react';
+
+const HomeComponent = (props)=>{
     return (
-        <body>
-        <h1>Online Advertisement System</h1>
-        </body>
+        <div>
+           <marquee><h1>ONLINE  ADVERTISEMENT  SYSTEM </h1></marquee> 
+        </div>
+       
+
     );
 }
+
+
+export default HomeComponent;
